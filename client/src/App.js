@@ -6,7 +6,7 @@ import SearchInfo from "./Context/SearchContext";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App mx-auto">
       <Router>
         <SearchInfo>
           <Routes>

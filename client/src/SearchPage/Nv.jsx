@@ -2,6 +2,11 @@ import React, { useContext, useEffect } from "react";
 import { SearchContext } from "../Context/SearchContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import url from "../Images/bg.png";
+import { AiOutlineSearch } from "react-icons/ai";
+import { BsCardImage } from "react-icons/bs";
+import { RiVideoLine } from "react-icons/ri";
+import { BiNews } from "react-icons/bi";
 
 import { dataNews } from "../Data/News";
 import { dataWeb } from "../Data/Web";
@@ -143,19 +148,51 @@ export default function Nv() {
     navigate("/");
   };
   return (
-    <div>
-      <div onClick={handleclick}>Google</div>
-      <div>nav bar.............you searched </div>
-
-      <input
-        value={textToSearch}
-        onKeyDown={Search}
-        onChange={(e) => {
-          settextToSearch(e.target.value);
-        }}
-      ></input>
-
-      
+    <div className="w-[100%] bg-white pl-1 ">
+      <div className="flex ">
+        <div onClick={handleclick} className="pt-5 pl-5 w-[200px]">
+          <div
+            className="bg-cover w-[55%] sm:w-[60%]  aspect-video "
+            style={{ backgroundImage: `url(${url})` }}
+          ></div>
+        </div>
+        <div>
+          <input
+            className="rounded-full border-2 border-[#bbb7b796] ml-[-60px] sm:ml-[-10px] mt-9 sm:mt-10 w-[200px] sm:w-[150%] md:w-[200%] lg:w-[350%] pl-5 h-[35px]"
+            value={textToSearch}
+            onKeyDown={Search}
+            onChange={(e) => {
+              settextToSearch(e.target.value);
+            }}
+          ></input>
+        </div>
+      </div>
+      <div className="ml-7 p-1 mt-1 sm:mt-4 flex justify-between w-[310px] sm:w-[30%]">
+        <div className="flex">
+          <div>
+            <AiOutlineSearch className="mt-1 m-1" />
+          </div>
+          <div>All</div>
+        </div>
+        <div className="flex">
+          <div>
+            <BsCardImage className="mt-1 m-1" />
+          </div>
+          <div>Images</div>
+        </div>
+        <div className="flex">
+          <div>
+            <RiVideoLine className="mt-1 m-1" />
+          </div>
+          <div>Video</div>
+        </div>
+        <div className="flex">
+          <div>
+            <BiNews className="mt-1 m-1" />
+          </div>
+          <div>News</div>
+        </div>
+      </div>
     </div>
   );
 }
