@@ -25,15 +25,49 @@ export default function Nv() {
     settextToSearch,
     SearchText,
     setSearchText,
-    Web,
-    setWeb,
-    Img,
-    setImg,
-    Vdo,
-    setVdo,
-    News,
-    setNews,
+    Webdata,
+    setWebdata,
+    Imgdata,
+    setImgdata,
+    Vdodata,
+    setVdodata,
+    Newsdata,
+    setNewsdata,
+
+    setSelectWeb,
+    SelectWeb,
+    setSelectimg,
+    Selectimg,
+    setSelectvdo,
+    Selectvdo,
+    setSelectnews,
+    Selectnews,
   } = useContext(SearchContext);
+
+  const selectall = () => {
+    setSelectWeb(true);
+    setSelectimg(false);
+    setSelectvdo(false);
+    setSelectnews(false);
+  };
+  const selectimg = () => {
+    setSelectWeb(false);
+    setSelectimg(true);
+    setSelectvdo(false);
+    setSelectnews(false);
+  };
+  const selectvdo = () => {
+    setSelectWeb(false);
+    setSelectimg(false);
+    setSelectvdo(true);
+    setSelectnews(false);
+  };
+  const selectnews = () => {
+    setSelectWeb(false);
+    setSelectimg(false);
+    setSelectvdo(false);
+    setSelectnews(true);
+  };
 
   console.log("you searched******************************");
   console.log(SearchText);
@@ -61,10 +95,10 @@ export default function Nv() {
     //   },
     // }).then((res) => {
     //   if (res.status === 200) {
-    //     setWeb(res.data.items);
+    //     setWebdata(res.data.items);
     //   } else {
     //     console.log("failed to get web");
-    //     setWeb([]);
+    //     setWebdata([]);
     //   }
     // });
     // await axios({
@@ -82,10 +116,10 @@ export default function Nv() {
     //   },
     // }).then((res) => {
     //   if (res.status === 200) {
-    //     setImg(res.data.items);
+    //     setImgdata(res.data.items);
     //   } else {
     //     console.log("failed to get img");
-    //     setImg([]);
+    //     setImgdata([]);
     //   }
     // });
     // await axios({
@@ -100,10 +134,10 @@ export default function Nv() {
     //   },
     // }).then((res) => {
     //   if (res.status === 200) {
-    //     setVdo(res.data.items);
+    //     setVdodata(res.data.items);
     //   } else {
     //     console.log("failed to get video");
-    //     setVdo([]);
+    //     setVdodata([]);
     //   }
     // });
     // await axios({
@@ -122,31 +156,36 @@ export default function Nv() {
     //   },
     // }).then((res) => {
     //   if (res.status === 200) {
-    //     setNews(res.data.value);
+    //     setNewsdata(res.data.value);
     //   } else {
     //     console.log("failed to get news");
-    //     setNews([]);
+    //     setNewsdata([]);
     //   }
     // });
   };
 
   console.log("---------web---------");
-  console.log(Web);
+  console.log(Webdata);
   console.log("---------img---------");
-  console.log(Img);
+  console.log(Imgdata);
   console.log("---------vdo---------");
-  console.log(Vdo);
+  console.log(Vdodata);
   console.log("---------news---------");
-  console.log(News);
+  console.log(Newsdata);
 
   useEffect(() => {
     getdata();
   }, [SearchText]);
 
   const handleclick = () => {
+    setSelectWeb(true);
+    setSelectimg(false);
+    setSelectvdo(false);
+    setSelectnews(false);
     settextToSearch("");
     navigate("/");
   };
+
   return (
     <div className="w-[100%] bg-white pl-1 ">
       <div className="flex ">
@@ -168,30 +207,62 @@ export default function Nv() {
         </div>
       </div>
       <div className="ml-7 p-1 mt-1 sm:mt-4 flex justify-between w-[310px] sm:w-[30%]">
-        <div className="flex">
+        <button className="flex" onClick={selectall}>
           <div>
             <AiOutlineSearch className="mt-1 m-1" />
           </div>
-          <div>All</div>
-        </div>
-        <div className="flex">
+          {SelectWeb ? (
+            <>
+              <div className="border-b-4 border-[#0c0c0c] w-[22px]">All</div>
+            </>
+          ) : (
+            <>
+              <div>All</div>
+            </>
+          )}
+        </button>
+        <button className="flex" onClick={selectimg}>
           <div>
             <BsCardImage className="mt-1 m-1" />
           </div>
-          <div>Images</div>
-        </div>
-        <div className="flex">
+          {Selectimg ? (
+            <>
+              <div className="border-b-4 border-[#0c0c0c] w-[50px]">Images</div>
+            </>
+          ) : (
+            <>
+              <div>Images</div>
+            </>
+          )}
+        </button>
+        <button className="flex" onClick={selectvdo}>
           <div>
             <RiVideoLine className="mt-1 m-1" />
           </div>
-          <div>Video</div>
-        </div>
-        <div className="flex">
+          {Selectvdo ? (
+            <>
+              <div className="border-b-4 border-[#0c0c0c] w-[42px]">Video</div>
+            </>
+          ) : (
+            <>
+              <div>Video</div>
+            </>
+          )}
+        </button>
+        <button className="flex" onClick={selectnews}>
           <div>
             <BiNews className="mt-1 m-1" />
           </div>
-          <div>News</div>
-        </div>
+          {Selectnews ? (
+            <>
+              <div className="border-b-4 border-[#0c0c0c] w-[40px]">News</div>
+            </>
+          ) : (
+            <>
+              <div>News</div>
+            </>
+          )}
+        </button>
       </div>
     </div>
   );

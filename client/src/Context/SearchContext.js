@@ -5,10 +5,15 @@ export const SearchContext = createContext("");
 const SearchInfo = ({ children }) => {
   const [textToSearch, settextToSearch] = useState("");
   const [SearchText, setSearchText] = useState("");
-  const [Web, setWeb] = useState([]);
-  const [Img, setImg] = useState([]);
-  const [Vdo, setVdo] = useState([]);
-  const [News, setNews] = useState([]);
+  const [Webdata, setWebdata] = useState([]);
+  const [Imgdata, setImgdata] = useState([]);
+  const [Vdodata, setVdodata] = useState([]);
+  const [Newsdata, setNewsdata] = useState([]);
+
+  const [SelectWeb, setSelectWeb] = useState(true);
+  const [Selectimg, setSelectimg] = useState(false);
+  const [Selectvdo, setSelectvdo] = useState(false);
+  const [Selectnews, setSelectnews] = useState(false);
 
   return (
     <SearchContext.Provider
@@ -17,14 +22,22 @@ const SearchInfo = ({ children }) => {
         settextToSearch,
         SearchText,
         setSearchText,
-        Web,
-        setWeb,
-        Img,
-        setImg,
-        Vdo,
-        setVdo,
-        News,
-        setNews,
+        Webdata,
+        setWebdata,
+        Imgdata,
+        setImgdata,
+        Vdodata,
+        setVdodata,
+        Newsdata,
+        setNewsdata,
+        setSelectWeb,
+        SelectWeb,
+        setSelectimg,
+        Selectimg,
+        setSelectvdo,
+        Selectvdo,
+        setSelectnews,
+        Selectnews,
       }}
     >
       {children}
