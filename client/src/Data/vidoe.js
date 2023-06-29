@@ -1,4 +1,4 @@
-items=[
+export const dataVdo=[
     {
       "type": "video",
       "title": "Elon Musk Begins Training For Bout With Mark Zuckerberg",

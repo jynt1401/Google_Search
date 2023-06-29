@@ -5,6 +5,10 @@ export const SearchContext = createContext("");
 const SearchInfo = ({ children }) => {
   const [textToSearch, settextToSearch] = useState("");
   const [SearchText, setSearchText] = useState("");
+  const [Web, setWeb] = useState([]);
+  const [Img, setImg] = useState([]);
+  const [Vdo, setVdo] = useState([]);
+  const [News, setNews] = useState([]);
 
   return (
     <SearchContext.Provider
@@ -13,6 +17,14 @@ const SearchInfo = ({ children }) => {
         settextToSearch,
         SearchText,
         setSearchText,
+        Web,
+        setWeb,
+        Img,
+        setImg,
+        Vdo,
+        setVdo,
+        News,
+        setNews,
       }}
     >
       {children}

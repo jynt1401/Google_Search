@@ -1,4 +1,4 @@
-value = [
+export const dataNews = [
   {
     _type: "NewsArticle",
     name: "Elon Musk, Mark Zuckerberg start training for proposed ‘cage match’",

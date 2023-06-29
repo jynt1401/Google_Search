@@ -1,4 +1,4 @@
-items = [
+export const dataWeb = [
   {
     title: "Elon Musk - Wikipedia",
     htmlTitle: "<b>Elon Musk</b> - Wikipedia",

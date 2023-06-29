@@ -12,7 +12,7 @@ export default function Home() {
   const Search = async (e) => {
     if (e.keyCode === 13) {
       setSearchText(textToSearch);
-      settextToSearch("");
+      // settextToSearch("");
       console.log("****************************");
       console.log(SearchText);
       navigate("/search");

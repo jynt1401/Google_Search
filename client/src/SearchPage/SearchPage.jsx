@@ -9,7 +9,10 @@ export default function SearchPage() {
   return (
     <div>
       <Nv />
-      <div>hello</div>
+      
+      <div>
+        <div>results</div>
+      </div>
     </div>
   );
 }
