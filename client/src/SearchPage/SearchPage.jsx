@@ -1,10 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import Nv from "./Nv";
 import { SearchContext } from "../Context/SearchContext";
-import Web from "./Web/Web";
-import Img from "./Img/Img";
-import Vdo from "./Video/Vdo";
-import News from "./News/News";
 import Error from "./Error";
 
 export default function SearchPage() {
