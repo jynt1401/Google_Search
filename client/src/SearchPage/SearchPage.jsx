@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Nv from "./Nv";
 import { SearchContext } from "../Context/SearchContext";
 import Web from "./Web/Web";
@@ -30,18 +30,74 @@ export default function SearchPage() {
     setSelectnews,
     Selectnews,
   } = useContext(SearchContext);
-  console.log(Webdata);
+  console.log("***************************************");
+  useEffect(() => {}, [Webdata, Imgdata, Vdodata, Newsdata]);
 
   return (
     <div>
       <Nv />
-      {SelectWeb?<><Web /></>:<></>}
-      {Selectimg?<><Img /></>:<></>}
-      {Selectvdo?<><Vdo /></>:<></>}
-      {Selectnews?<><News /></>:<></>}
 
+      {SelectWeb ? (
+        <>
+          {Webdata.length === 0 ? (
+            <>
+              <Error />
+            </>
+          ) : (
+            <>
+              <Web wdata={Webdata} />
+            </>
+          )}
+        </>
+      ) : (
+        <></>
+      )}
+      {Selectimg ? (
+        <>
+          {Imgdata.length === 0 ? (
+            <>
+              <Error />
+            </>
+          ) : (
+            <>
+              <Img data={Imgdata} />
+            </>
+          )}
+        </>
+      ) : (
+        <></>
+      )}
+      {Selectvdo ? (
+        <>
+          {Vdodata.length === 0 ? (
+            <>
+              <Error />
+            </>
+          ) : (
+            <>
+              <Vdo data={Vdodata} />
+            </>
+          )}
+        </>
+      ) : (
+        <></>
+      )}
+      {Selectnews ? (
+        <>
+          {Newsdata.length === 0 ? (
+            <>
+              <Error />
+            </>
+          ) : (
+            <>
+              <News data={Newsdata} />
+            </>
+          )}
+        </>
+      ) : (
+        <></>
+      )}
       
-      <Error />
     </div>
   );
 }

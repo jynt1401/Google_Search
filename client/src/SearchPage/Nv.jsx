@@ -14,10 +14,10 @@ import { dataVdo } from "../Data/Vidoe";
 import { dataImg } from "../Data/Images";
 
 export default function Nv() {
-  console.log(dataNews);
-  console.log(dataWeb);
-  console.log(dataVdo);
-  console.log(dataImg);
+  // console.log(dataNews);
+  // console.log(dataWeb);
+  // console.log(dataVdo);
+  // console.log(dataImg);
 
   const navigate = useNavigate();
   const {
@@ -69,99 +69,107 @@ export default function Nv() {
     setSelectnews(true);
   };
 
-  console.log("you searched******************************");
-  console.log(SearchText);
+  // console.log("you searched******************************");
+  // console.log(SearchText);
 
   const Search = (e) => {
     if (e.keyCode === 13) {
+      setWebdata([]);
+      setImgdata([]);
+      setVdodata([]);
+      setNewsdata([]);
       setSearchText(textToSearch);
       console.log("use searched this");
+      setSelectWeb(true);
+      setSelectimg(false);
+      setSelectvdo(false);
+      setSelectnews(false);
     }
   };
 
   const getdata = async () => {
-    // await axios({
-    //   method: "GET",
-    //   url: "https://google-search-json.p.rapidapi.com/search/web",
-    //   params: {
-    //     q: SearchText,
-    //     gl: "US",
-    //     lr: "lang_en",
-    //     start: "0",
-    //   },
-    //   headers: {
-    //     "X-RapidAPI-Key": "647e202f00mshba8cc6bbd314fbdp14ff09jsna5b14c0b3c5b",
-    //     "X-RapidAPI-Host": "google-search-json.p.rapidapi.com",
-    //   },
-    // }).then((res) => {
-    //   if (res.status === 200) {
-    //     setWebdata(res.data.items);
-    //   } else {
-    //     console.log("failed to get web");
-    //     setWebdata([]);
-    //   }
-    // });
-    // await axios({
-    //   method: "GET",
-    //   url: "https://google-search72.p.rapidapi.com/imagesearch",
-    //   params: {
-    //     q: SearchText,
-    //     gl: "US",
-    //     lr: "lang_en",
-    //     start: "0",
-    //   },
-    //   headers: {
-    //     "X-RapidAPI-Key": "647e202f00mshba8cc6bbd314fbdp14ff09jsna5b14c0b3c5b",
-    //     "X-RapidAPI-Host": "google-search72.p.rapidapi.com",
-    //   },
-    // }).then((res) => {
-    //   if (res.status === 200) {
-    //     setImgdata(res.data.items);
-    //   } else {
-    //     console.log("failed to get img");
-    //     setImgdata([]);
-    //   }
-    // });
-    // await axios({
-    //   method: "GET",
-    //   url: "https://youtube-search-results.p.rapidapi.com/youtube-search/",
-    //   params: {
-    //     q: SearchText,
-    //   },
-    //   headers: {
-    //     "X-RapidAPI-Key": "647e202f00mshba8cc6bbd314fbdp14ff09jsna5b14c0b3c5b",
-    //     "X-RapidAPI-Host": "youtube-search-results.p.rapidapi.com",
-    //   },
-    // }).then((res) => {
-    //   if (res.status === 200) {
-    //     setVdodata(res.data.items);
-    //   } else {
-    //     console.log("failed to get video");
-    //     setVdodata([]);
-    //   }
-    // });
-    // await axios({
-    //   method: "GET",
-    //   url: "https://bing-news-search1.p.rapidapi.com/news/search",
-    //   params: {
-    //     q: SearchText,
-    //     freshness: "Day",
-    //     textFormat: "Raw",
-    //     safeSearch: "Off",
-    //   },
-    //   headers: {
-    //     "X-BingApis-SDK": "true",
-    //     "X-RapidAPI-Key": "647e202f00mshba8cc6bbd314fbdp14ff09jsna5b14c0b3c5b",
-    //     "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
-    //   },
-    // }).then((res) => {
-    //   if (res.status === 200) {
-    //     setNewsdata(res.data.value);
-    //   } else {
-    //     console.log("failed to get news");
-    //     setNewsdata([]);
-    //   }
-    // });
+    await axios({
+      method: "GET",
+      url: "https://google-search-json.p.rapidapi.com/search/web",
+      params: {
+        q: SearchText,
+        gl: "US",
+        lr: "lang_en",
+        start: "0",
+      },
+      headers: {
+        "X-RapidAPI-Key": "647e202f00mshba8cc6bbd314fbdp14ff09jsna5b14c0b3c5b",
+        "X-RapidAPI-Host": "google-search-json.p.rapidapi.com",
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        setWebdata(res.data.items);
+      } else {
+        console.log("failed to get web");
+        setWebdata([]);
+      }
+    });
+    await axios({
+      method: "GET",
+      url: "https://google-search72.p.rapidapi.com/imagesearch",
+      params: {
+        q: SearchText,
+        gl: "US",
+        lr: "lang_en",
+        start: "0",
+      },
+      headers: {
+        "X-RapidAPI-Key": "647e202f00mshba8cc6bbd314fbdp14ff09jsna5b14c0b3c5b",
+        "X-RapidAPI-Host": "google-search72.p.rapidapi.com",
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        setImgdata(res.data.items);
+      } else {
+        console.log("failed to get img");
+        setImgdata([]);
+      }
+    });
+    await axios({
+      method: "GET",
+      url: "https://youtube-search-results.p.rapidapi.com/youtube-search/",
+      params: {
+        q: SearchText,
+      },
+      headers: {
+        "X-RapidAPI-Key": "647e202f00mshba8cc6bbd314fbdp14ff09jsna5b14c0b3c5b",
+        "X-RapidAPI-Host": "youtube-search-results.p.rapidapi.com",
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        setVdodata(res.data.items);
+      } else {
+        console.log("failed to get video");
+        setVdodata([]);
+      }
+    });
+    await axios({
+      method: "GET",
+      url: "https://bing-news-search1.p.rapidapi.com/news/search",
+      params: {
+        q: SearchText,
+        freshness: "Day",
+        textFormat: "Raw",
+        safeSearch: "Off",
+      },
+      headers: {
+        "X-BingApis-SDK": "true",
+        "X-RapidAPI-Key": "647e202f00mshba8cc6bbd314fbdp14ff09jsna5b14c0b3c5b",
+        "X-RapidAPI-Host": "bing-news-search1.p.rapidapi.com",
+      },
+    }).then((res) => {
+      if (res.status === 200) {
+        setNewsdata(res.data.value);
+      } else {
+        console.log("failed to get news");
+        setNewsdata([]);
+      }
+    });
   };
 
   console.log("---------web---------");
@@ -182,6 +190,10 @@ export default function Nv() {
     setSelectimg(false);
     setSelectvdo(false);
     setSelectnews(false);
+    setWebdata([]);
+    setImgdata([]);
+    setVdodata([]);
+    setNewsdata([]);
     settextToSearch("");
     navigate("/");
   };

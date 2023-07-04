@@ -2,16 +2,16 @@ import React from 'react'
 import Card from './Card'
 import { dataImg } from "../../Data/Images";
 
-export default function Img() {
+export default function Img({data}) {
   return (
     <div className=" mt-9 flex w-[90%] mx-auto flex-wrap">
-      {dataImg.map((data) => (
+      {data.map((data) => (
         <div ><Card data={data}/></div>
       ))}
-      {dataImg.map((data) => (
+      {data.map((data) => (
         <div ><Card data={data}/></div>
       ))}
-      {dataImg.map((data) => (
+      {data.map((data) => (
         <div ><Card data={data}/></div>
       ))}
     </div>

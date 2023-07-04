@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function Card({ data }) {
   const navigate = useNavigate();
 
+  console.log("================");
   console.log(data);
   return (
     <a href={data.link} target="_blank">

@@ -3,12 +3,12 @@ import SearchInfo, { SearchContext } from "../../Context/SearchContext";
 import { dataWeb } from "../../Data/Web";
 import Card from "./Card";
 
-export default function Web() {
-  const { Web } = useContext(SearchContext);
-  console.log(dataWeb);
+export default function Web({wdata}) {
+  
+  console.log(wdata);
   return (
     <div className=" mt-9">
-      {dataWeb.map((data) => (
+      {wdata.map((data) => (
         <div ><Card data={data}/></div>
       ))}
     </div>
