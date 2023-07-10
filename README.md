@@ -18,3 +18,12 @@ Responsive Design: The Google Search Clone is designed to be responsive, ensurin
 Dynamic Loading: The project implements dynamic loading techniques to enhance performance, allowing search results and additional content to load dynamically as users scroll through the page.
 
 By developing the Google Search Clone using API, this React project offers an opportunity to learn and practice essential web development skills while creating a functional and visually appealing search engine clone. Whether you are a beginner seeking to grasp React concepts or an experienced developer looking to enhance your portfolio, this project provides an engaging and rewarding experience that closely mirrors the world of modern web development.
+
+
+
+
+https://github.com/jynt1401/Google_Search/assets/100084399/07591174-d9ac-43ca-bcb1-cbf90cddc769
+
+
+
+
