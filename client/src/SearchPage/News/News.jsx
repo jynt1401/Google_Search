@@ -1,5 +1,4 @@
 import React from 'react'
-// import { dataNews } from '../../Data/News'
 import Card from './Card'
 
 

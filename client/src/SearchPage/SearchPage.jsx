@@ -2,6 +2,11 @@ import React, { useContext, useEffect } from "react";
 import Nv from "./Nv";
 import { SearchContext } from "../Context/SearchContext";
 import Error from "./Error";
+import Img from "./Img/Img";
+import Vdo from "./Video/Vdo";
+import News from "./News/News";
+import Web from "./Web/Web";
+
 
 export default function SearchPage() {
   const {

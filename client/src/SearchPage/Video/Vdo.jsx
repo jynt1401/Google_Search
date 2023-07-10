@@ -1,5 +1,4 @@
 import React from "react";
-// import { dataVdo } from "../../Data/Vidoe";
 import Card from "./Card";
 
 export default function Vdo({ data }) {

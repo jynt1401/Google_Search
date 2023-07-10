@@ -1,6 +1,5 @@
 import React from 'react'
 import Card from './Card'
-// import { dataImg } from "../../Data/Images";
 
 export default function Img({data}) {
   return (
