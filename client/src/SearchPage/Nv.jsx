@@ -8,10 +8,10 @@ import { BsCardImage } from "react-icons/bs";
 import { RiVideoLine } from "react-icons/ri";
 import { BiNews } from "react-icons/bi";
 
-import { dataNews } from "../Data/News";
-import { dataWeb } from "../Data/Web";
-import { dataVdo } from "../Data/Vidoe";
-import { dataImg } from "../Data/Images";
+import { dataNews } from "../Data/news";
+import { dataWeb } from "../Data/web";
+import { dataVdo } from "../Data/vidoe";
+import { dataImg } from "../Data/images";
 
 export default function Nv() {
   // console.log(dataNews);
