@@ -98,8 +98,8 @@ export default function Nv() {
         start: "0",
       },
       headers: {
-        "X-RapidAPI-Key": "647e202f00mshba8cc6bbd314fbdp14ff09jsna5b14c0b3c5b",
-        "X-RapidAPI-Host": "google-search-json.p.rapidapi.com",
+        'X-RapidAPI-Key': '40bf2e267fmsh29930f666d12711p1eda1ejsn483052c23e18',
+    'X-RapidAPI-Host': 'google-search-json.p.rapidapi.com'
       },
     }).then((res) => {
       if (res.status === 200) {
